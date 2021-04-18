@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		xmlns:tools="http://schemas.android.com/tools"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		tools:context=".MainActivity"
+		android:padding="36dp"
+		android:orientation="vertical">
+
+	<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:textSize="38sp"
+			android:text="@string/autoussd_sample" />
+
+	<TextView
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:text="@string/app_description"
+			android:layout_marginBottom="36dp"
+			android:id="@+id/textView" />
+
+	<EditText
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:inputType="phone"
+			android:ems="10"
+			android:layout_marginBottom="24dp"
+			android:hint="@string/recipient_number"
+			android:id="@+id/numberInput"
+			android:importantForAutofill="no" />
+
+	<EditText
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:inputType="numberDecimal"
+			android:ems="10"
+			android:layout_marginBottom="24dp"
+			android:hint="@string/amount_ghs"
+			android:id="@+id/amountInput"
+			android:importantForAutofill="no" />
+
+	<EditText
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:inputType="textCapSentences"
+			android:layout_marginBottom="24dp"
+			android:hint="@string/reference"
+			android:ems="10"
+			android:id="@+id/referenceInput"
+			android:importantForAutofill="no" />
+
+	<EditText
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:inputType="numberPassword"
+			android:ems="10"
+			android:layout_marginBottom="24dp"
+			android:hint="@string/pin"
+			android:id="@+id/pinInput"
+			android:importantForAutofill="no" />
+
+	<Button
+			android:text="@string/complete_transaction"
+			android:layout_width="match_parent"
+			android:layout_height="64dp"
+			android:onClick="completeTransaction" />
+</LinearLayout>
