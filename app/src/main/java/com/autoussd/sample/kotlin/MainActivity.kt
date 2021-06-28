@@ -1,4 +1,4 @@
-package com.autoussd.sample
+package com.autoussd.sample.kotlin
 
 import android.os.Bundle
 import android.view.View
