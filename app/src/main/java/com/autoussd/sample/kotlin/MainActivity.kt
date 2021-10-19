@@ -1,6 +1,7 @@
 package com.autoussd.sample.kotlin
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.EditText
 import android.widget.Toast
@@ -24,6 +25,10 @@ class MainActivity : AppCompatActivity() {
                     Toast.makeText(this@MainActivity, "Success!", Toast.LENGTH_LONG).show()
                 }
                 else -> {
+                    Log.d("MainActivity", it.sessionId)
+                    Log.d("MainActivity", it.status.toString())
+                    Log.d("MainActivity", it.description)
+                    Log.d("MainActivity", if (it.lastContent != null) it.lastContent!! else "")
                     /* Session execution failed. Log error and display message to user */
                     Toast.makeText(this@MainActivity, "Something went wrong", Toast.LENGTH_LONG)
                         .show()
@@ -56,8 +61,9 @@ class MainActivity : AppCompatActivity() {
 
         /* Execute session having this id */
         autoUssd.executeSession(
-            "81c9bc38-173e-4b14-aee1-a2d1749dfee0",
+            "d709c23c-8db9-4626-a2a6-d6474a416aec",
             arrayOf(
+                recipientNumber,
                 recipientNumber,
                 amount,
                 reference
