@@ -19,7 +19,7 @@
 
         <meta-data
             android:name="com.autoussd.APP_ID"
-            android:value="ce99bd00-59ff-4723-80f7-2c6cd926435f" />
+            android:value="60a53eb10000000000000000" />
     </application>
 
 </manifest>

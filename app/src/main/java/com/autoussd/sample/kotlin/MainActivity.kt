@@ -61,7 +61,7 @@ class MainActivity : AppCompatActivity() {
 
         /* Execute session having this id */
         autoUssd.executeSession(
-            "d709c23c-8db9-4626-a2a6-d6474a416aec",
+            "60daf7330000000000000000",
             arrayOf(
                 recipientNumber,
                 recipientNumber,
