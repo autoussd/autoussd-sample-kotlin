@@ -1,5 +1,5 @@
 <resources>
-	<string name="app_name">AutoUssd Sample (Kotlin)</string>
+    <string name="app_name">AutoUssd Sample (Kotlin)</string>
     <string name="autoussd_sample_kotlin">AutoUssd Sample</string>
     <string name="app_description">We\'ll use this sample starting app to illustrate how to use the AutoUssd platform</string>
     <string name="recipient_number">Recipient number</string>
@@ -7,4 +7,5 @@
     <string name="reference">Reference</string>
     <string name="pin">PIN</string>
     <string name="complete_transaction">Complete transaction</string>
+    <string name="initialize_payment">Initialize payment</string>
 </resources>
