@@ -23,9 +23,7 @@
             </intent-filter>
         </activity>
 
-        <meta-data
-            android:name="com.autoussd.APP_ID"
-            android:value="60a53eb10000000000000000" />
+        <!-- TODO: Add AutoUssd app id meta-data tag -->
     </application>
 
 </manifest>
