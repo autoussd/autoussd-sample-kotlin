@@ -62,7 +62,8 @@ class PaymentActivity : ComponentActivity() {
                 recipientNumber,
                 amount,
                 reference,
-            )
+            ),
+            null
         )
     }
 }

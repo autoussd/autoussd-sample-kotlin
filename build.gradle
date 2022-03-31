@@ -15,7 +15,7 @@ allprojects {
     repositories {
         google()
         mavenCentral()
-        maven { url "https://raw.github.com/autoussd/autoussd-aar/master" }
+        maven { url "https://raw.github.com/autoussd/autoussd-aar-no-sms/master" }
     }
 }
 
