@@ -4,19 +4,19 @@ import android.os.Bundle
 import android.view.View
 import android.widget.EditText
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
+import androidx.activity.ComponentActivity
+import com.autoussd.AutoUssd
 
-class PaymentActivity : AppCompatActivity() {
+class PaymentActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_payment)
-
-        // TODO #1 Initialize AutoUssd SDK
+        AutoUssd.init(this)
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        // TODO #3 Dispose AutoUssd SDK
+        AutoUssd.dispose()
     }
 
     @Suppress("UNUSED_PARAMETER")
@@ -36,6 +36,13 @@ class PaymentActivity : AppCompatActivity() {
             return Toast.makeText(this, "All fields are required", Toast.LENGTH_LONG).show()
         }
 
-        // TODO #2: Execute session with the AutoUssd SDK
+        AutoUssd.executeSession(
+            "624139ee262baa2bdb159c83",
+            arrayOf(
+                recipientNumber,
+                amount,
+                reference,
+            )
+        )
     }
 }
