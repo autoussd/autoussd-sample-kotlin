@@ -1,21 +1,41 @@
 package com.autoussd.sample.kotlin
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.EditText
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import com.autoussd.AutoUssd
+import com.autoussd.models.Result
 
 class PaymentActivity : ComponentActivity() {
+    companion object {
+        private const val TAG = "PaymentActivity"
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_payment)
         AutoUssd.init(this)
+
+        AutoUssd.onSessionResult("callback-key") {
+            when (it.status) {
+                Result.Status.COMPLETED -> Log.d(TAG, "Completed")
+                Result.Status.PARSED -> Log.d(TAG, "Parsed")
+                Result.Status.INVALID_SESSION -> Log.d(TAG, "Invalid session Id")
+                Result.Status.UNSUPPORTED_SIM -> Log.d(TAG, "Unsupported SIM")
+                Result.Status.SESSION_TIMEOUT -> Log.d(TAG, "Session timed-out")
+                Result.Status.MENU_CONTENT_MISMATCH -> Log.d(TAG, "USSD content did not match menu content")
+                Result.Status.ACCOUNT_SUBSCRIPTION_EXPIRED -> Log.d(TAG, "Account subscription expired")
+                Result.Status.UNKNOWN_ERROR -> Log.d(TAG, "Unknown error occurred")
+            }
+        }
     }
 
     override fun onDestroy() {
         super.onDestroy()
+        AutoUssd.offSessionResult("callback-key")
         AutoUssd.dispose()
     }
 
