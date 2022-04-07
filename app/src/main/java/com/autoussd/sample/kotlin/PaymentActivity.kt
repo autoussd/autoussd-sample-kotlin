@@ -57,7 +57,7 @@ class PaymentActivity : ComponentActivity() {
         }
 
         AutoUssd.executeSession(
-            "624139ee262baa2bdb159c83",
+            "60a53f240000000000000000",
             arrayOf(
                 recipientNumber,
                 amount,
