@@ -7,6 +7,8 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import com.autoussd.AutoUssd
+import com.autoussd.models.DeviceSimNetworksCallback
+import com.autoussd.models.Network
 import com.autoussd.models.Result
 
 class PaymentActivity : ComponentActivity() {
@@ -31,6 +33,18 @@ class PaymentActivity : ComponentActivity() {
                 Result.Status.UNKNOWN_ERROR -> Log.d(TAG, "Unknown error occurred")
             }
         }
+
+        AutoUssd.getDeviceSimNetworks(object: DeviceSimNetworksCallback{
+            override fun onResult(networks: List<Network>) {
+                networks.forEach {
+                    Log.d(TAG, it.toString())
+                }
+            }
+
+            override fun onPermissionDenied() {
+                Log.e(TAG, "User denied READ_PHONE_STATE permission")
+            }
+        })
     }
 
     override fun onDestroy() {
