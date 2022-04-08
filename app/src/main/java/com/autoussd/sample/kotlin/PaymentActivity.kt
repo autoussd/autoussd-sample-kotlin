@@ -7,6 +7,8 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import com.autoussd.AutoUssd
+import com.autoussd.models.DeviceSimNetworksCallback
+import com.autoussd.models.Network
 import com.autoussd.models.Result
 
 class PaymentActivity : ComponentActivity() {
@@ -26,11 +28,28 @@ class PaymentActivity : ComponentActivity() {
                 Result.Status.INVALID_SESSION -> Log.d(TAG, "Invalid session Id")
                 Result.Status.UNSUPPORTED_SIM -> Log.d(TAG, "Unsupported SIM")
                 Result.Status.SESSION_TIMEOUT -> Log.d(TAG, "Session timed-out")
-                Result.Status.MENU_CONTENT_MISMATCH -> Log.d(TAG, "USSD content did not match menu content")
-                Result.Status.ACCOUNT_SUBSCRIPTION_EXPIRED -> Log.d(TAG, "Account subscription expired")
+                Result.Status.MENU_CONTENT_MISMATCH -> Log.d(
+                    TAG, "USSD content did not match menu content"
+                )
+                Result.Status.ACCOUNT_SUBSCRIPTION_EXPIRED -> Log.d(
+                    TAG,
+                    "Account subscription expired"
+                )
                 Result.Status.UNKNOWN_ERROR -> Log.d(TAG, "Unknown error occurred")
             }
         }
+
+        AutoUssd.getDeviceSimNetworks(object : DeviceSimNetworksCallback {
+            override fun onResult(networks: List<Network>) {
+                networks.forEach {
+                    Log.d(TAG, it.toString())
+                }
+            }
+
+            override fun onPermissionDenied() {
+                Log.e(TAG, "User denied READ_PHONE_STATE permission")
+            }
+        })
     }
 
     override fun onDestroy() {
