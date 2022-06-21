@@ -10,12 +10,14 @@ class PaymentActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_payment)
+
+        // TODO #1: Initialize AutoUssd
     }
 
     override fun onDestroy() {
         super.onDestroy()
 
-        // TODO #2 Dispose AutoUssd SDK
+        // TODO #3: Dispose AutoUssd SDK
     }
 
     @Suppress("UNUSED_PARAMETER")
@@ -35,6 +37,6 @@ class PaymentActivity : AppCompatActivity() {
             return Toast.makeText(this, "All fields are required", Toast.LENGTH_LONG).show()
         }
 
-        // TODO #1: Execute session with the AutoUssd SDK
+        // TODO #2: Execute session with the AutoUssd SDK
     }
 }
