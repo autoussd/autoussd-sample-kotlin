@@ -58,7 +58,7 @@ class PaymentActivity : ComponentActivity() {
     override fun onDestroy() {
         super.onDestroy()
 
-        // TODO #3 Dispose AutoUssd SDK
+        // TODO #3: Dispose AutoUssd SDK
         AutoUssd.getInstance().unregisterSessionResultListener("callback-key")
         AutoUssd.getInstance().dispose()
     }
