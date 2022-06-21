@@ -19,7 +19,6 @@ class PaymentActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_payment)
-        AutoUssd.init(this)
 
         AutoUssd.getInstance().registerSessionResultListener("callback-key") {
             when (it.status) {
@@ -55,6 +54,8 @@ class PaymentActivity : ComponentActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
+
+        // TODO #2 Dispose AutoUssd SDK
         AutoUssd.getInstance().unregisterSessionResultListener("callback-key")
         AutoUssd.getInstance().dispose()
     }

@@ -17,6 +17,8 @@ allprojects {
     repositories {
         google()
         mavenCentral()
+
+        /* TODO: Add AutoUssd Maven repository */
         maven { url "https://raw.github.com/autoussd/autoussd-aar/master" }
     }
 }
