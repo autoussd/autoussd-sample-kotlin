@@ -20,6 +20,9 @@ class PaymentActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_payment)
 
+        // TODO #1: Initialize AutoUssd
+        AutoUssd.init(this)
+
         AutoUssd.getInstance().registerSessionResultListener("callback-key") {
             when (it.status) {
                 Result.Status.COMPLETED -> Log.d(TAG, "Completed")
@@ -55,7 +58,7 @@ class PaymentActivity : ComponentActivity() {
     override fun onDestroy() {
         super.onDestroy()
 
-        // TODO #2 Dispose AutoUssd SDK
+        // TODO #3 Dispose AutoUssd SDK
         AutoUssd.getInstance().unregisterSessionResultListener("callback-key")
         AutoUssd.getInstance().dispose()
     }
@@ -77,6 +80,7 @@ class PaymentActivity : ComponentActivity() {
             return Toast.makeText(this, "All fields are required", Toast.LENGTH_LONG).show()
         }
 
+        // TODO #2: Execute session with the AutoUssd SDK
         AutoUssd.getInstance().executeSession(
             "629e05e1751c102d57c53c0d",
             mapOf(
